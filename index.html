@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Ping coming soon page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca&family=Libre+Franklin:wght@300;600;700&family=Montserrat:wght@400;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <img class="logo" src="images/logo.svg" alt="logo" />
+      <p class="big">We are launching <span>soon!</span></p>
+      <p class="normal">Subscribe and get notified</p>
+      <div class="input">
+        <div class="contenir">
+          <input
+            class="email"
+            id="email"
+            type="email"
+            placeholder="Your email address..."
+          />
+
+          <p><em id="error"></em></p>
+        </div>
+        <div class="btn-div">
+          <input id="notifyMe" class="btn" type="button" value="Notify Me" />
+        </div>
+      </div>
+      <img class="img" src="images/illustration-dashboard.png" alt="" />
+      <div class="social">
+        <img class="ion" src="images/logo-facebook.svg" alt="facebook" />
+        <img class="ion" src="images/logo-twitter.svg" alt="twitter" />
+        <img class="ion" src="images/logo-instagram.svg" alt="instagram" />
+      </div>
+      <p class="copy">&copy; Copyright Ping. All rights reserved.</p>
+    </div>
+    <script>
+      const btn = document.getElementById("notifyMe");
+      const error = document.getElementById("error");
+      const email = document.getElementById("email");
+      var mail_format = ["@", "."];
+
+      btn.addEventListener("click", () => {
+        if (
+          email.value.match(mail_format[0]) &&
+          email.value.match(mail_format[1])
+        ) {
+          document.getElementById("error").style.color = "hsl(151, 100%, 34%)";
+          document.getElementById("error").innerHTML =
+            "Thanks, we will be in contact with you!";
+          document.getElementById("error").style.color = "hsl(151, 100%, 34%)";
+          email.style.border = "hsl(151, 100%, 34%) solid 1.2px";
+        } else if (email.value === "") {
+          email.style.border = "red solid 1.4px";
+          document.getElementById("error").innerHTML = "Please provid an email";
+          document.getElementById("error").style.color = "hsl(354, 100%, 66%)";
+        } else {
+          email.style.border = "red solid 1.4px";
+          document.getElementById("error").innerHTML =
+            "Please provide a valid email address";
+          document.getElementById("error").style.color = "hsl(354, 100%, 66%)";
+        }
+      });
+    </script>
+  </body>
+</html>
